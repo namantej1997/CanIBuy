@@ -37,6 +37,11 @@ public class Scanactivity extends AppCompatActivity {
         startActivity(new Intent(this, SMSActivity.class));
     }
 
+
+    public void scanBills(View view){
+        startActivity(new Intent(this,LaunchCameraActivity.class));
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
