@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.canibuy.smsparse.SMSActivity;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
@@ -30,6 +31,11 @@ public class Scanactivity extends AppCompatActivity {
 
     public void scanQRCode(View view){
         qrScan.initiateScan();
+    }
+
+    public void scanSMS(){
+        finish();
+        startActivity(new Intent(this, SMSActivity.class));
     }
 
     @Override
