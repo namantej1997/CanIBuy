@@ -8,6 +8,14 @@
         android:layout_height="60dp"
         android:layout_marginTop="140dp"
         android:layout_marginLeft="90dp"
+        android:text="Scan SMS"
+        android:id="@+id/smsparse"
+        android:onClick="scanSMS"/>
+    <Button
+        android:layout_width="240dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginLeft="90dp"
         android:text="Scan"
         android:id="@+id/scan"
         android:onClick="scanQRCode"/>
