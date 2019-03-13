@@ -1,4 +1,4 @@
-package com.example.canibuy.smsparse;
+package com.example.canibuy;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.telephony.SmsMessage;
 
 public class SmsReceiver extends BroadcastReceiver {
-    //interface
+
     private static SmsListener mListener;
 
     @Override
@@ -20,17 +20,12 @@ public class SmsReceiver extends BroadcastReceiver {
             SmsMessage smsMessage = SmsMessage.createFromPdu((byte[]) pdus[i]);
 
             String sender = smsMessage.getDisplayOriginatingAddress();
-            //Check the sender to filter messages which we require to read
+            //You must check here if the sender is your provider and not another one with same text.
 
-            // Sender name like FLKART, UBER etc
-            if (sender.equals("98"))
-            {
-                String messageBody = smsMessage.getMessageBody();
+            String messageBody = smsMessage.getMessageBody();
 
-                //Pass the message text to interface
-                mListener.messageReceived(messageBody);
-
-            }
+            //Pass on the text to our listener.
+            mListener.messageReceived(messageBody);
         }
 
     }

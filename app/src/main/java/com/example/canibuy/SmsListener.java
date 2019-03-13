@@ -1,6 +1,8 @@
-package com.example.canibuy.smsparse;
+package com.example.canibuy;
+
 
 public interface SmsListener {
-    public void messageReceived(String messageText);
-}
 
+    public void messageReceived(String messageText);
+
+}
