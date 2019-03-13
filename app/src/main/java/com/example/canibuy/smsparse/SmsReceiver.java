@@ -23,7 +23,7 @@ public class SmsReceiver extends BroadcastReceiver {
             //Check the sender to filter messages which we require to read
 
             // Sender name like FLKART, UBER etc
-            if (sender.equals("Anuranjan Srivastava"))
+            if (sender.equals("98"))
             {
                 String messageBody = smsMessage.getMessageBody();
 

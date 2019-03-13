@@ -33,8 +33,8 @@ public class Scanactivity extends AppCompatActivity {
         qrScan.initiateScan();
     }
 
-    public void scanSMS(){
-        finish();
+    public void scanSMS(View view){
+
         startActivity(new Intent(this, SMSActivity.class));
     }
 
