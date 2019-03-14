@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -30,6 +31,8 @@ public class Scanactivity extends AppCompatActivity {
     private IntentIntegrator qrScan;
 
     private FirebaseFirestore firebaseFirestore;
+
+
 
 
 
@@ -51,6 +54,7 @@ public class Scanactivity extends AppCompatActivity {
 //
 
 firebaseFirestore = FirebaseFirestore.getInstance();
+
         qrScan = new IntentIntegrator(this);
 
         insert.setOnClickListener(new View.OnClickListener() {

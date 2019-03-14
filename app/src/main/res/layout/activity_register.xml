@@ -18,7 +18,7 @@
             android:layout_marginTop="15dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/can_i_buy"
+            android:src="@drawable/can"
             android:id="@+id/imageView1"
             >
 
