@@ -97,7 +97,22 @@ public class CameraActivity extends AppCompatActivity {
 
 
         String billString = (String) textView.getText();
+        billString = parseString(billString).toString();
         Toast.makeText(this,billString,Toast.LENGTH_LONG).show();
 
+    }
+    public StringBuilder parseString(String stringBuilder) {
+        String[] strArray = stringBuilder.split(" ");
+        StringBuilder finalResult = new StringBuilder();
+        for(int i=0;i<strArray.length;i++) {
+            if(strArray[i].equals("Total") || strArray.equals("MRP") || strArray.equals("INR")){
+                while(i<strArray.length && !strArray[i].matches("^[+]?([0-9]{1,2})*[.,]([0-9])?$")) {
+                    i++;
+                }
+                finalResult.append(strArray[i-1]);
+                break;
+            }
+        }
+        return finalResult;
     }
 }
