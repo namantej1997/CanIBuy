@@ -98,7 +98,9 @@ public class CameraActivity extends AppCompatActivity {
 
         String billString = (String) textView.getText();
         billString = parseString(billString);
-        Toast.makeText(this,billString,Toast.LENGTH_LONG).show();
+
+        // Send billString number(regex remove any characters) to firebase
+        Toast.makeText(this,"Price: "+billString,Toast.LENGTH_LONG).show();
 
     }
     public String parseString(String stringBuilder) {
@@ -107,7 +109,7 @@ public class CameraActivity extends AppCompatActivity {
         for(String line : strArray) {
             if (line.startsWith("MRP")) {
                 String[] arr = line.split(" ");
-                return arr[arr.length - 1];
+                return arr[arr.length - 1].replace(".","").replace(",","");
             }
         }
         return "Price not found";
