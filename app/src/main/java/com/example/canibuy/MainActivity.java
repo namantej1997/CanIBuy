@@ -23,13 +23,14 @@ public class MainActivity extends AppCompatActivity {
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    Intent Action;
-                    Action = new Intent(getApplicationContext(),Scanactivity.class);
-
-                    startActivity(Action);
+                    Intent display;
+                    display = new Intent(getApplicationContext(),displayPie.class);
+                    startActivity(display);
                     return true;
                 case R.id.navigation_dashboard:
-                    mTextMessage.setText(R.string.title_dashboard);
+                    Intent scan;
+                    scan = new Intent(getApplicationContext(),Scanactivity.class);
+                    startActivity(scan);
                     return true;
                 case R.id.navigation_notifications:
                     mTextMessage.setText(R.string.title_notifications);
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser user = auth.getCurrentUser();
 
         mTextMessage = (TextView) findViewById(R.id.message);
-        mTextMessage.setText("Welcome"+user.getEmail());
+        mTextMessage.setText("Welcome: "+user.getEmail());
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
