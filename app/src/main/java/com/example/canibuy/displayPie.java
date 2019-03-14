@@ -41,7 +41,7 @@ public class displayPie extends AppCompatActivity {
 
         //List View
         //Firebase
-        lv = (ListView) findViewById(R.id.text_list_view);
+        lv = (ListView) findViewById(R.id.lv);
 
         //Init Firebase db
         db = FirebaseDatabase.getInstance().getReference();
@@ -51,14 +51,14 @@ public class displayPie extends AppCompatActivity {
         adapter = new CustomAdapter(this, helper.retrieveLedger());
         lv.setAdapter(adapter);
 
-        //TODO: Create FloatingActionButton in dashboard
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                displayInputDialog();
-            }
-        });
+//        //TODO: Create FloatingActionButton in dashboard
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                displayInputDialog();
+//            }
+//        });
 
         //Pie Chart
         PieChart pieChart = findViewById(R.id.piechart);
@@ -137,7 +137,7 @@ public class displayPie extends AppCompatActivity {
                 Ledger ledger = new Ledger(category, amount, item, debited);
                 if(helper.saveLedger(ledger)){
 
-                    !debitedBool.setChecked();
+                    debitedBool.setChecked(false);
                     itemTxt.setText("");
                     ammountTxt.setText("");
                     categoryTxt.setText("");
