@@ -35,6 +35,7 @@
         </activity>
         <activity android:name=".SMSActivity">
 
+
         </activity>
         <activity android:name=".LoginActivity"
             android:label="Login">

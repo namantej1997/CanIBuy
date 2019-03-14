@@ -1,11 +1,13 @@
 package com.example.canibuy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -80,11 +82,22 @@ public class CameraActivity extends AppCompatActivity {
                                 stringBuilder.append("\n");
                             }
                             textView.setText(stringBuilder.toString());
+
                         }
                     });
 
                 }
             }
         });
+    }
+
+    public void screenShot(View view){
+//        Intent intent;
+//        intent = new Intent(this,Scanactivity.class);
+
+
+        String billString = (String) textView.getText();
+        Toast.makeText(this,billString,Toast.LENGTH_LONG).show();
+
     }
 }

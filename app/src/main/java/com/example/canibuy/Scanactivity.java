@@ -5,14 +5,23 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class Scanactivity extends AppCompatActivity {
 
@@ -20,12 +29,56 @@ public class Scanactivity extends AppCompatActivity {
 
     private IntentIntegrator qrScan;
 
+    private FirebaseFirestore firebaseFirestore;
+
+
+
+    private EditText editText;
+
+    private Button insert;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
         textView = (TextView) findViewById(R.id.textViewAddress);
+        editText = (EditText) findViewById(R.id.editinsert);
+        insert=(Button) findViewById(R.id.insert);
+
+//
+
+firebaseFirestore = FirebaseFirestore.getInstance();
         qrScan = new IntentIntegrator(this);
+
+        insert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String code = editText.getText().toString().trim();
+                int price = 3310;
+
+
+                Map<String, Integer> itemval = new HashMap<>();
+
+                itemval.put(code,price);
+
+                firebaseFirestore.collection("items").add(itemval);
+
+
+
+            }
+        });
+
+
+
+
+
+
+
+
+
     }
 
     public void scanQRCode(View view){
@@ -55,7 +108,17 @@ public class Scanactivity extends AppCompatActivity {
                     textView.setText(obj.getString("address"));
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    String code = result.getContents().trim();
+                    int price = 2000;
+                    Map<String, Integer> itemval = new HashMap<>();
+
+                    itemval.put(code,price);
+
+                    firebaseFirestore.collection("items").add(itemval);
+
                     Toast.makeText(this,result.getContents(),Toast.LENGTH_SHORT).show();
+
+
                 }
             }
         }
