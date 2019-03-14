@@ -21,7 +21,11 @@ public class CustomAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return ledgerList.size();
+        if(ledgerList!=null) {
+            if (ledgerList.size() > 0)
+                return ledgerList.size();
+        }
+        return 0;
     }
 
     @Override

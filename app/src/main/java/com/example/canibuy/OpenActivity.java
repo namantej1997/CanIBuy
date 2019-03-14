@@ -1,9 +1,11 @@
 package com.example.canibuy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.LinearLayout;
 
 public class OpenActivity extends AppCompatActivity {
@@ -24,5 +26,10 @@ public class OpenActivity extends AppCompatActivity {
         sliderAdapter = new SliderAdapter(this);
 
         mSlideViewPager.setAdapter(sliderAdapter);
+    }
+
+    public void goLogin(View view){
+        finish();
+        startActivity(new Intent(this,LoginActivity.class));
     }
 }

@@ -21,6 +21,7 @@
             android:onClick="scanSMS"
             app:cardElevation="15dp"
             android:id="@+id/smsparse"
+
             >
 
             <LinearLayout

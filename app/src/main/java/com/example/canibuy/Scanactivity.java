@@ -47,9 +47,7 @@ public class Scanactivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan);
-        textView = (TextView) findViewById(R.id.textViewAddress);
-        editText = (EditText) findViewById(R.id.editinsert);
-        insert=(Button) findViewById(R.id.insert);
+//
 
 //
 
@@ -57,33 +55,7 @@ firebaseFirestore = FirebaseFirestore.getInstance();
 
         qrScan = new IntentIntegrator(this);
 
-        insert.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String code = editText.getText().toString().trim();
-                int price = 3310;
-
-
-                Map<String, Integer> itemval = new HashMap<>();
-
-                itemval.put(code,price);
-
-                firebaseFirestore.collection("items").add(itemval);
-
-
-
             }
-        });
-
-
-
-
-
-
-
-
-
-    }
 
     public void scanQRCode(View view){
         qrScan.initiateScan();

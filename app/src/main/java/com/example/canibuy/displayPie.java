@@ -51,7 +51,6 @@ public class displayPie extends AppCompatActivity {
         adapter = new CustomAdapter(this, helper.retrieveLedger());
         lv.setAdapter(adapter);
 
-//        //TODO: Create FloatingActionButton in dashboard
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -111,8 +110,10 @@ public class displayPie extends AppCompatActivity {
 
     }
 
+
+
     //Display Ledger input
-    private void displayInputDialog() {
+    public void displayInputDialog(View view) {
         Dialog d = new Dialog(this);
         d.setTitle("Manual expense Input");
         d.setContentView(R.layout.ledger_input);
